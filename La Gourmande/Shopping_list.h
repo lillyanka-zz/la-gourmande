@@ -13,7 +13,7 @@
 
 @interface Shopping_list : NSManagedObject
 
-@property (nonatomic, retain) NSSet *ingredientes;
+@property (nonatomic, retain) NSArray *ingredientes;
 @end
 
 @interface Shopping_list (CoreDataGeneratedAccessors)

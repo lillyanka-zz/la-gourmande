@@ -14,8 +14,8 @@
 @interface Ingrediente : NSManagedObject
 
 @property (nonatomic, retain) NSString * nombre;
-@property (nonatomic, retain) NSSet *receta;
-@property (nonatomic, retain) NSSet *shopping_list;
+@property (nonatomic, retain) NSString *receta;
+@property (nonatomic, retain) NSString *shopping_list;
 @end
 
 @interface Ingrediente (CoreDataGeneratedAccessors)

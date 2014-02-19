@@ -114,7 +114,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"La_Gourmande.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"gourmande.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -176,19 +176,26 @@
     // Set password. Need to find a way to encrypt
     user.password = @"password";
     
+    // Insert the Ingrediente entity
+    Ingrediente *ing = [NSEntityDescription insertNewObjectForEntityForName:@"Ingrediente" inManagedObjectContext:context];
+    
+    ing.nombre = @"1 paquete de gnocchi Divella de 500g";
+    
     
     // Insert the Receta entity
     Receta *receta = [NSEntityDescription insertNewObjectForEntityForName:@"Receta" inManagedObjectContext:context];
     
     // Set the receta attributes
     receta.titulo = @"Cacerola de Gnocchi y  queso";
-    receta.ingredientes = @[@"1 paquete de gnocchi Divella de 500g", @"1/2 cajita de crema dulce", @"1 1/2 taza de queso (mezcla de quesos italianos Crystal Farms o Borden)", @"1/2 taza de caldo de pollo, casero o de cajita", @"3/4 de taza de agua caliente", @"250g. de jamón", @"1 lata de petit-pois", @"1/2 cebolla picada en cuadritos", @"1/2 cucharadita de tomillo fresco o 1/2 ", @"2 cucharadas de aceite de oliva" ];
+    receta.ingredientes = @[ing];
     receta.link = @"http://diariodeunagourmande.com/cacerola-de-gnocchi-y-queso/";
     receta.tiempo = @"90 min";
     receta.dificultad = @"Simple";
     receta.tags = @[@"pasta", @"italiana", @"comfort food", @"queso"];
     receta.rating = @5;
     receta.instrucciones = @"Para empezar, ponemos a calentar las 2 cucharadas de aceite de oliva a fuego medio-alto, y cuando esté listo ponemos las cebollas a cocinar por unos 3 a 5 minutos, hasta que estén transparentes. Cuando eso suceda, agregamos el jamón y el tomillo y cocinamos por otros 3 a 5 minutos.\n Cuando el jamón está cocinado, agregamos el caldo y el agua (yo los pongo en la misma taza medidora, el total de líquido es 1 1/4 de taza) y lo dejamos tranquilito hasta que esté a punto de hervir, o sea, hasta que esté haciendo burbujas pequeñas. Cuando el caldo se ve como la foto de arriba, agregamos los gnocchi.\n Les damos una movidita para que todos se bañen en el caldo, tapamos la sartén y los dejamos por aproximadamente unos 5 minutines. Mientras los gnocchi se cocinan, se pone a calentar el horno en “broil” o “dorar”.\n Cuando están listos, se quitan del fuego y (si el sartén no se puede meter al horno) se pasan a un pyrex o cacerola. Se agregan la crema dulce, las petit-pois y los quesos, y se lleva la cacerola al horno, por unos 5 minutos, o hasta que el queso de encima se vea doradito. Luego se deja descansar unos 10 minutos para que el queso se seque un poquito y quede más cremoso. O, si uno es un desesperado como yo, se sirve una taza inmediatamente. No queda tan cremoso, pero les prometo que igual será delicioso. Nada más cuidado de no quemarse!";
+    
+    [ing addRecetaObject:receta];
     
     // Save everything
     NSError *error = nil;
