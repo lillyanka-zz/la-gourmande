@@ -7,6 +7,12 @@
 //
 
 #import "LAGAppDelegate.h"
+#import "Usuario.h"
+#import "Receta.h"
+#import "Ingrediente.h"
+#import "Shopping_list.h"
+#import "Comment.h"
+
 
 @implementation LAGAppDelegate
 
@@ -14,12 +20,17 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+//    *scaffoldViewController = [[SDScaffoldIndexViewController alloc]
+//                               initWithEntityName:@"User" sortBy:@"lastname" context:[self managedObjectContext] andStyle:UITableViewStyleGrouped];
+    [self create];
+    [self read];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -144,6 +155,184 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
+#pragma mark - Private methods
+
+- (void) create {
+    // Grab the context
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Grab the Usuario entity
+    Usuario *user = [NSEntityDescription insertNewObjectForEntityForName:@"Usuario" inManagedObjectContext:context];
+    
+    // Set user name
+    user.nombre = @"Lillyanka";
+    
+    // Set email
+    user.email = @"sittingducks@gmail.com";
+    
+    // Set password. Need to find a way to encrypt
+    user.password = @"password";
+    
+    
+    // Insert the Receta entity
+    Receta *receta = [NSEntityDescription insertNewObjectForEntityForName:@"Receta" inManagedObjectContext:context];
+    
+    // Set the receta attributes
+    receta.titulo = @"Cacerola de Gnocchi y  queso";
+    receta.ingredientes = @[@"1 paquete de gnocchi Divella de 500g", @"1/2 cajita de crema dulce", @"1 1/2 taza de queso (mezcla de quesos italianos Crystal Farms o Borden)", @"1/2 taza de caldo de pollo, casero o de cajita", @"3/4 de taza de agua caliente", @"250g. de jamón", @"1 lata de petit-pois", @"1/2 cebolla picada en cuadritos", @"1/2 cucharadita de tomillo fresco o 1/2 ", @"2 cucharadas de aceite de oliva" ];
+    receta.link = @"http://diariodeunagourmande.com/cacerola-de-gnocchi-y-queso/";
+    receta.tiempo = @"90 min";
+    receta.dificultad = @"Simple";
+    receta.tags = @[@"pasta", @"italiana", @"comfort food", @"queso"];
+    receta.rating = @5;
+    receta.instrucciones = @"Para empezar, ponemos a calentar las 2 cucharadas de aceite de oliva a fuego medio-alto, y cuando esté listo ponemos las cebollas a cocinar por unos 3 a 5 minutos, hasta que estén transparentes. Cuando eso suceda, agregamos el jamón y el tomillo y cocinamos por otros 3 a 5 minutos.\n Cuando el jamón está cocinado, agregamos el caldo y el agua (yo los pongo en la misma taza medidora, el total de líquido es 1 1/4 de taza) y lo dejamos tranquilito hasta que esté a punto de hervir, o sea, hasta que esté haciendo burbujas pequeñas. Cuando el caldo se ve como la foto de arriba, agregamos los gnocchi.\n Les damos una movidita para que todos se bañen en el caldo, tapamos la sartén y los dejamos por aproximadamente unos 5 minutines. Mientras los gnocchi se cocinan, se pone a calentar el horno en “broil” o “dorar”.\n Cuando están listos, se quitan del fuego y (si el sartén no se puede meter al horno) se pasan a un pyrex o cacerola. Se agregan la crema dulce, las petit-pois y los quesos, y se lleva la cacerola al horno, por unos 5 minutos, o hasta que el queso de encima se vea doradito. Luego se deja descansar unos 10 minutos para que el queso se seque un poquito y quede más cremoso. O, si uno es un desesperado como yo, se sirve una taza inmediatamente. No queda tan cremoso, pero les prometo que igual será delicioso. Nada más cuidado de no quemarse!";
+    
+    // Save everything
+    NSError *error = nil;
+    if ([context save:&error]) {
+        NSLog(@"The save was successful!");
+    } else {
+        NSLog(@"The save wasn't successful: %@", [error userInfo]);
+    }
+}
+
+- (void) read {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Construct a fetch request
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Usuario"
+                                              inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    for (Usuario *user in fetchedObjects) {
+        // Log the user details
+        
+        NSLog(@"%@, email: %@, password: %@", user.nombre, user.email, user.password);
+    }
+}
+
+- (void) update {
+    // Grab the context
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Perform fetch request
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Usuario"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    // Date formatter comes in handy
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY"];
+    
+    // Grab the label
+    Usuario *lilly = [fetchedObjects objectAtIndex:0];
+    
+    // Juelz Santana
+    Usuario *lillyanka = [NSEntityDescription insertNewObjectForEntityForName:@"Usuario" inManagedObjectContext:context];
+    lillyanka.nombre = @"Lilliana Víquez";
+    lillyanka.email = @"lilly@twelveohsixcreative.com";
+    lillyanka.password = @"test";
+//
+//    // Juelz Santana albums
+//    Album *juelzAlbum = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
+//    juelzAlbum.title = @"From Me to U";
+//    juelzAlbum.released = [dateFormatter dateFromString:@"2003"];
+//    [juelzAlbum setArtist:juelz];
+//    
+//    Album *juelzAlbum2 = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
+//    juelzAlbum2.title = @"What The Game's Been Missing!";
+//    juelzAlbum2.released = [dateFormatter dateFromString:@"2005"];
+//    [juelzAlbum2 setArtist:juelz];
+//    
+//    // Set relationships
+//    [juelz addAlbums:[NSSet setWithObjects:juelzAlbum, juelzAlbum2, nil]];
+//    
+//    
+//    // Jim Jones
+//    Artist *jimmy = [NSEntityDescription insertNewObjectForEntityForName:@"Artist" inManagedObjectContext:context];
+//    jimmy.name = @"Jim Jones";
+//    jimmy.hometown = @"Harlem, NY";
+//    
+//    // Jim Jones albums
+//    Album *jimmyAlbum = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
+//    jimmyAlbum.title = @"On My Way to Church";
+//    jimmyAlbum.released = [dateFormatter dateFromString:@"2004"];
+//    [jimmyAlbum setArtist:jimmy];
+//    
+//    Album *jimmyAlbum2 = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
+//    jimmyAlbum2.title = @"Harlem: Diary of a Summer";
+//    jimmyAlbum2.released = [dateFormatter dateFromString:@"2005"];
+//    [jimmyAlbum2 setArtist:jimmy];
+//    
+//    Album *jimmyAlbum3 = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
+//    jimmyAlbum3.title = @"Hustler's P.O.M.E. (Product of My Environment)";
+//    jimmyAlbum3.released = [dateFormatter dateFromString:@"2006"];
+//    [jimmyAlbum3 setArtist:jimmy];
+//    
+//    // Set relationships
+//    [jimmy addAlbums:[NSSet setWithObjects:jimmyAlbum, jimmyAlbum2, jimmyAlbum3, nil]];
+//    
+//    
+//    // Freekey Zekey
+//    Artist *freekey = [NSEntityDescription insertNewObjectForEntityForName:@"Artist" inManagedObjectContext:context];
+//    freekey.name = @"Freekey Zekey";
+//    freekey.hometown = @"Harlem, NY";
+//    
+//    Album *freekeyAlbum = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
+//    freekeyAlbum.title = @"Book of Ezekiel";
+//    freekeyAlbum.released = [dateFormatter dateFromString:@"2007"];
+//    [freekeyAlbum setArtist:freekey];
+//    [freekey addAlbumsObject:freekeyAlbum];
+//    
+//    // Set relationships
+//        [lillyanka addFavoritos:[NSSet setWithObjects:receta, nil]];
+//
+        // Save everything
+        if ([context save:&error]) {
+            NSLog(@"The save was successful!");
+        } else {
+            NSLog(@"The save wasn't successful: %@", [error localizedDescription]);
+        }
+    }
+
+- (void) delete {
+    // Grab the context
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    //  We're looking to grab an artist
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    
+    // We specify that we only want Freekey Zekey
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", @"Lilliana Víquez"];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    // Grab the artist and delete
+    Usuario *lillyanka = [fetchedObjects objectAtIndex:0];
+    [lillyanka removeCommentsObject:lillyanka];
+    
+    // Save everything
+    if ([context save:&error]) {
+        NSLog(@"The save was successful!");
+    } else {
+        NSLog(@"The save wasn't successful: %@", [error localizedDescription]);
+    }
 }
 
 @end

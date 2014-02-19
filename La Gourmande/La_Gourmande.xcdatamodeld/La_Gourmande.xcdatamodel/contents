@@ -1,4 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Comment" representedClassName="Comment" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="receta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Receta" inverseName="comments" inverseEntity="Receta" syncable="YES"/>
+        <relationship name="usuario" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="comments" inverseEntity="Usuario" syncable="YES"/>
+    </entity>
+    <entity name="Ingrediente" representedClassName="Ingrediente" syncable="YES">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="receta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Receta" inverseName="ingredientes" inverseEntity="Receta" syncable="YES"/>
+        <relationship name="shopping_list" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Shopping_list" inverseName="ingredientes" inverseEntity="Shopping_list" syncable="YES"/>
+    </entity>
+    <entity name="Receta" representedClassName="Receta" syncable="YES">
+        <attribute name="dificultad" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instrucciones" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="tiempo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="receta" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="ingredientes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingrediente" inverseName="receta" inverseEntity="Ingrediente" syncable="YES"/>
+        <relationship name="usuarios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Usuario" inverseName="favoritos" inverseEntity="Usuario" syncable="YES"/>
+    </entity>
+    <entity name="Shopping_list" representedClassName="Shopping_list" syncable="YES">
+        <relationship name="ingredientes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingrediente" inverseName="shopping_list" inverseEntity="Ingrediente" syncable="YES"/>
+    </entity>
+    <entity name="Usuario" representedClassName="Usuario" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="usuario" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="favoritos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Receta" inverseName="usuarios" inverseEntity="Receta" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Comment" positionX="-216" positionY="-151" width="128" height="103"/>
+        <element name="Ingrediente" positionX="207" positionY="-198" width="128" height="88"/>
+        <element name="Receta" positionX="36" positionY="-468" width="128" height="193"/>
+        <element name="Shopping_list" positionX="7" positionY="-135" width="128" height="58"/>
+        <element name="Usuario" positionX="-171" positionY="-405" width="128" height="118"/>
+    </elements>
 </model>

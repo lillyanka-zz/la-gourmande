@@ -22,6 +22,12 @@
 		319639EF18B4F94C00C82255 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319639D318B4F94C00C82255 /* CoreData.framework */; };
 		319639F718B4F94C00C82255 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 319639F518B4F94C00C82255 /* InfoPlist.strings */; };
 		319639F918B4F94C00C82255 /* La_GourmandeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 319639F818B4F94C00C82255 /* La_GourmandeTests.m */; };
+		31963A1418B5011C00C82255 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 31963A1318B5011C00C82255 /* Usuario.m */; };
+		31963A1718B501B900C82255 /* Receta.m in Sources */ = {isa = PBXBuildFile; fileRef = 31963A1618B501B900C82255 /* Receta.m */; };
+		31963A1A18B501C700C82255 /* Ingrediente.m in Sources */ = {isa = PBXBuildFile; fileRef = 31963A1918B501C700C82255 /* Ingrediente.m */; };
+		31963A1D18B501D500C82255 /* Shopping_list.m in Sources */ = {isa = PBXBuildFile; fileRef = 31963A1C18B501D500C82255 /* Shopping_list.m */; };
+		31963A2018B501E200C82255 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31963A1F18B501E200C82255 /* Comment.m */; };
+		31963A2218B5054C00C82255 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31963A2118B5054C00C82255 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,17 @@
 		319639F418B4F94C00C82255 /* La GourmandeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "La GourmandeTests-Info.plist"; sourceTree = "<group>"; };
 		319639F618B4F94C00C82255 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		319639F818B4F94C00C82255 /* La_GourmandeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = La_GourmandeTests.m; sourceTree = "<group>"; };
+		31963A1218B5011C00C82255 /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Usuario.h; sourceTree = "<group>"; };
+		31963A1318B5011C00C82255 /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
+		31963A1518B501B900C82255 /* Receta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receta.h; sourceTree = "<group>"; };
+		31963A1618B501B900C82255 /* Receta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receta.m; sourceTree = "<group>"; };
+		31963A1818B501C700C82255 /* Ingrediente.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingrediente.h; sourceTree = "<group>"; };
+		31963A1918B501C700C82255 /* Ingrediente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingrediente.m; sourceTree = "<group>"; };
+		31963A1B18B501D500C82255 /* Shopping_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shopping_list.h; sourceTree = "<group>"; };
+		31963A1C18B501D500C82255 /* Shopping_list.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shopping_list.m; sourceTree = "<group>"; };
+		31963A1E18B501E200C82255 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		31963A1F18B501E200C82255 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		31963A2118B5054C00C82255 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +137,17 @@
 				319639E418B4F94C00C82255 /* Images.xcassets */,
 				319639E118B4F94C00C82255 /* La_Gourmande.xcdatamodeld */,
 				319639D618B4F94C00C82255 /* Supporting Files */,
+				31963A1218B5011C00C82255 /* Usuario.h */,
+				31963A1318B5011C00C82255 /* Usuario.m */,
+				31963A1518B501B900C82255 /* Receta.h */,
+				31963A1618B501B900C82255 /* Receta.m */,
+				31963A1818B501C700C82255 /* Ingrediente.h */,
+				31963A1918B501C700C82255 /* Ingrediente.m */,
+				31963A1B18B501D500C82255 /* Shopping_list.h */,
+				31963A1C18B501D500C82255 /* Shopping_list.m */,
+				31963A1E18B501E200C82255 /* Comment.h */,
+				31963A1F18B501E200C82255 /* Comment.m */,
+				31963A2118B5054C00C82255 /* MainStoryboard.storyboard */,
 			);
 			path = "La Gourmande";
 			sourceTree = "<group>";
@@ -229,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31963A2218B5054C00C82255 /* MainStoryboard.storyboard in Resources */,
 				319639DA18B4F94C00C82255 /* InfoPlist.strings in Resources */,
 				319639E518B4F94C00C82255 /* Images.xcassets in Resources */,
 			);
@@ -249,7 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31963A1D18B501D500C82255 /* Shopping_list.m in Sources */,
 				319639DC18B4F94C00C82255 /* main.m in Sources */,
+				31963A1718B501B900C82255 /* Receta.m in Sources */,
+				31963A1418B5011C00C82255 /* Usuario.m in Sources */,
+				31963A2018B501E200C82255 /* Comment.m in Sources */,
+				31963A1A18B501C700C82255 /* Ingrediente.m in Sources */,
 				319639E318B4F94C00C82255 /* La_Gourmande.xcdatamodeld in Sources */,
 				319639E018B4F94C00C82255 /* LAGAppDelegate.m in Sources */,
 			);
@@ -452,6 +486,7 @@
 				319639FE18B4F94C00C82255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		319639FF18B4F94C00C82255 /* Build configuration list for PBXNativeTarget "La GourmandeTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +495,7 @@
 				31963A0118B4F94C00C82255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
