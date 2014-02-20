@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Lilliana Víquez Murillo. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "LAGAppDelegate.h"
 #import "Usuario.h"
 #import "Receta.h"

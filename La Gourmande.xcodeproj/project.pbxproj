@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BA7C6ED18B5A7090017C19C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6EC18B5A7090017C19C /* Parse.framework */; };
+		2BA7C6EF18B5A73F0017C19C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6EE18B5A73F0017C19C /* AudioToolbox.framework */; };
+		2BA7C6F118B5A7470017C19C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6F018B5A7470017C19C /* CFNetwork.framework */; };
+		2BA7C6F318B5A7530017C19C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6F218B5A7530017C19C /* CoreLocation.framework */; };
+		2BA7C6F518B5A75C0017C19C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6F418B5A75C0017C19C /* libz.dylib */; };
+		2BA7C6F718B5A7640017C19C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6F618B5A7640017C19C /* MobileCoreServices.framework */; };
+		2BA7C6F918B5A76C0017C19C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6F818B5A76C0017C19C /* QuartzCore.framework */; };
+		2BA7C6FB18B5A7740017C19C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6FA18B5A7740017C19C /* Security.framework */; };
+		2BA7C6FD18B5A77A0017C19C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6FC18B5A77A0017C19C /* StoreKit.framework */; };
+		2BA7C6FF18B5A7820017C19C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA7C6FE18B5A7820017C19C /* SystemConfiguration.framework */; };
 		319639CE18B4F94C00C82255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319639CD18B4F94C00C82255 /* Foundation.framework */; };
 		319639D018B4F94C00C82255 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319639CF18B4F94C00C82255 /* CoreGraphics.framework */; };
 		319639D218B4F94C00C82255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319639D118B4F94C00C82255 /* UIKit.framework */; };
@@ -41,6 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BA7C6EC18B5A7090017C19C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		2BA7C6EE18B5A73F0017C19C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		2BA7C6F018B5A7470017C19C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		2BA7C6F218B5A7530017C19C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2BA7C6F418B5A75C0017C19C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2BA7C6F618B5A7640017C19C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		2BA7C6F818B5A76C0017C19C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2BA7C6FA18B5A7740017C19C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2BA7C6FC18B5A77A0017C19C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2BA7C6FE18B5A7820017C19C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		319639CA18B4F94C00C82255 /* La Gourmande.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "La Gourmande.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		319639CD18B4F94C00C82255 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		319639CF18B4F94C00C82255 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,10 +97,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BA7C6FF18B5A7820017C19C /* SystemConfiguration.framework in Frameworks */,
+				2BA7C6FD18B5A77A0017C19C /* StoreKit.framework in Frameworks */,
+				2BA7C6FB18B5A7740017C19C /* Security.framework in Frameworks */,
+				2BA7C6F918B5A76C0017C19C /* QuartzCore.framework in Frameworks */,
+				2BA7C6F718B5A7640017C19C /* MobileCoreServices.framework in Frameworks */,
+				2BA7C6F518B5A75C0017C19C /* libz.dylib in Frameworks */,
+				2BA7C6F318B5A7530017C19C /* CoreLocation.framework in Frameworks */,
+				2BA7C6F118B5A7470017C19C /* CFNetwork.framework in Frameworks */,
+				2BA7C6EF18B5A73F0017C19C /* AudioToolbox.framework in Frameworks */,
 				319639D018B4F94C00C82255 /* CoreGraphics.framework in Frameworks */,
 				319639D418B4F94C00C82255 /* CoreData.framework in Frameworks */,
 				319639D218B4F94C00C82255 /* UIKit.framework in Frameworks */,
 				319639CE18B4F94C00C82255 /* Foundation.framework in Frameworks */,
+				2BA7C6ED18B5A7090017C19C /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +150,16 @@
 		319639CC18B4F94C00C82255 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BA7C6FE18B5A7820017C19C /* SystemConfiguration.framework */,
+				2BA7C6FC18B5A77A0017C19C /* StoreKit.framework */,
+				2BA7C6FA18B5A7740017C19C /* Security.framework */,
+				2BA7C6F818B5A76C0017C19C /* QuartzCore.framework */,
+				2BA7C6F618B5A7640017C19C /* MobileCoreServices.framework */,
+				2BA7C6F418B5A75C0017C19C /* libz.dylib */,
+				2BA7C6F218B5A7530017C19C /* CoreLocation.framework */,
+				2BA7C6F018B5A7470017C19C /* CFNetwork.framework */,
+				2BA7C6EE18B5A73F0017C19C /* AudioToolbox.framework */,
+				2BA7C6EC18B5A7090017C19C /* Parse.framework */,
 				319639CD18B4F94C00C82255 /* Foundation.framework */,
 				319639CF18B4F94C00C82255 /* CoreGraphics.framework */,
 				319639D118B4F94C00C82255 /* UIKit.framework */,
@@ -404,6 +444,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/supervisor/Sites/la-gourmande",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "La Gourmande/La Gourmande-Prefix.pch";
 				INFOPLIST_FILE = "La Gourmande/La Gourmande-Info.plist";
@@ -417,6 +461,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/supervisor/Sites/la-gourmande",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "La Gourmande/La Gourmande-Prefix.pch";
 				INFOPLIST_FILE = "La Gourmande/La Gourmande-Info.plist";
