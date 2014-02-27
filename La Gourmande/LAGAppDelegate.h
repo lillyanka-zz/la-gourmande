@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Lilliana Víquez Murillo. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import <UIKit/UIKit.h>
 
 @interface LAGAppDelegate : UIResponder <UIApplicationDelegate>
